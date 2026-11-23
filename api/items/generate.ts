@@ -65,7 +65,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   const safeCount = Math.min(5, Math.max(1, Number.isFinite(countRaw) && countRaw > 0 ? countRaw : 3));
   const defaultModel = process.env.VERCEL ? 'gemini-2.5-flash' : 'gemini-4-hydrogen';
-  const modelName = process.env.GEMINI_MODEL || defaultModel;
+  const rawModel = (process.env.GEMINI_MODEL ?? '').trim();
+  const modelName =
+    !rawModel || rawModel.startsWith('AQ.') || rawModel.startsWith('AIza') || rawModel.length > 60
+      ? defaultModel
+      : rawModel;
 
   const requestParams = {
     model: modelName,
