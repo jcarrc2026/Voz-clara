@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><title>Voz Clara</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-secondary-fixed":"#341100","on-secondary-fixed-variant":"#783200","on-surface":"#191c1e","secondary-fixed":"#ffdbca","tertiary-fixed-dim":"#4edea3","tertiary-fixed":"#6ffbbe","error":"#ba1a1a","on-error-container":"#93000a","on-primary":"#ffffff","surface-container-high":"#e6e8ea","secondary":"#9d4300","on-primary-fixed":"#0f0069","surface-tint":"#4d44e3","outline-variant":"#c7c4d8","on-primary-fixed-variant":"#3323cc","inverse-on-surface":"#eff1f3","surface-dim":"#d8dadc","surface-variant":"#e0e3e5","primary-fixed":"#e2dfff","on-error":"#ffffff","on-tertiary":"#ffffff","outline":"#777587","primary":"#3525cd","on-background":"#191c1e","surface-container":"#eceef0","on-secondary-container":"#5c2400","tertiary":"#005338","on-surface-variant":"#464555","primary-fixed-dim":"#c3c0ff","surface-bright":"#f7f9fb","secondary-fixed-dim":"#ffb690","on-secondary":"#ffffff","on-tertiary-fixed-variant":"#005236","secondary-container":"#fd761a","surface":"#f7f9fb","on-primary-container":"#dad7ff","inverse-primary":"#c3c0ff","surface-container-low":"#f2f4f6","primary-container":"#4f46e5","inverse-surface":"#2d3133","tertiary-container":"#006e4b","on-tertiary-container":"#67f4b7","error-container":"#ffdad6","background":"#f7f9fb","surface-container-lowest":"#ffffff","surface-container-highest":"#e0e3e5","on-tertiary-fixed":"#002113"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-sm":"0.5rem","space-xl":"2.5rem","margin":"2rem","space-lg":"1.5rem","space-md":"1rem","space-xs":"0.25rem","gutter":"1.5rem"},"fontFamily":{"headline-xl":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"body-sm":["Inter"],"label-lg":["Inter"],"headline-md":["Plus Jakarta Sans"],"body-lg":["Inter"],"label-sm":["Inter"],"headline-xl-mobile":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"label-md":["Inter"],"headline-sm":["Plus Jakarta Sans"],"body-md":["Inter"]},"fontSize":{"headline-xl":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-lg-mobile":["24px",{"lineHeight":"30px","letterSpacing":"-0.015em","fontWeight":"700"}],"body-sm":["14px",{"lineHeight":"20px","fontWeight":"400"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-lg":["18px",{"lineHeight":"28px","fontWeight":"400"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.03em","fontWeight":"500"}],"headline-xl-mobile":["28px",{"lineHeight":"34px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.015em","fontWeight":"700"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"headline-sm":["20px",{"lineHeight":"28px","fontWeight":"600"}],"body-md":["16px",{"lineHeight":"24px","fontWeight":"400"}]}}}};</script></head><body class="bg-surface font-body-md text-body-md text-on-surface"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-low z-50 flex flex-col py-space-lg px-space-md"><div class="flex items-center gap-space-sm px-space-sm mb-space-xl"><img alt="Voz Clara Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmR6qDXT-Um4r6Jjc7ULmCuZ3_6wgS2wqjdEsnMpkTTA6cuNyOfhr_7RidDjL3PQt5u-JJpf1GcgBjb2tstnUlLi8QgaS8hCilLWmSPcnjeU-p741SP3vIHM48bC084khZ09oR6OfjdSh_oMYJ2bRO2ySsiudD47l64nbKXuvfFP3mE0aJ9ZM9DYcKcZfsGR9TanT8wwVI0DeLlsRf6yTyUslkQx8paEp4lJeIbCE"/><span class="font-headline-sm text-headline-sm text-primary">Voz Clara</span></div><nav class="flex-1 flex flex-col gap-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-xl"><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-space-sm transition-colors bg-primary-container text-on-primary-container font-semibold rounded-xl" data-path="inicio" href="#"><span class="material-symbols-outlined">home</span><span>Inicio</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="estudio-de-practica" href="#"><span class="material-symbols-outlined">mic</span><span>Estudio de Práctica</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="analisis-de-sesiones" href="#"><span class="material-symbols-outlined">graphic_eq</span><span>Análisis de Sesiones</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="cursos-y-modulos" href="#"><span class="material-symbols-outlined">menu_book</span><span>Cursos y Módulos</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="progreso" href="#"><span class="material-symbols-outlined">trending_up</span><span>Progreso</span></a></nav></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40"><div class="w-full h-full px-margin flex items-center justify-between gap-space-lg"><div class="relative flex-1 max-w-md"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span><input class="w-full pl-10 pr-space-md py-space-sm rounded-lg bg-surface-container-lowest text-body-sm font-body-sm text-on-surface placeholder:text-on-surface-variant focus:outline-none" placeholder="Buscar ejercicios o lecciones..." type="search"/></div><div class="flex items-center gap-space-md"><div class="inline-flex items-center px-space-md py-space-xs rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md">🔥 7 días</div><button aria-label="Notificaciones" class="p-space-sm rounded-full text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors flex items-center justify-center" type="button"><span class="material-symbols-outlined">notifications</span></button><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmXOqWC2J4ZWo6tG4SCy6mLhTTabhvy-Zuivvkw6r1CSxp-ChyyGHc0R625RzOFI6PRAd6z4zvgS6VxducWJdRo6vcUS0lul5ncXwiCQszXuEpb0NJSQAkjizAOqdSZGVh1rPBN2z6XtaGMAVVRQ5zv_NWdkMaTAB37pXjOzcIvGi0EB-F_OpFyZtGe6-RVsY2ESrCTxPo25AVGcdFdAOUiRRJARbFiihkekZbff4"/></div></div></header><main class="relative pt-16 bg-surface w-full px-margin"><div class="flex flex-col w-full">
+<div class="max-w-[1200px] w-full mx-auto py-space-lg flex flex-col gap-space-xl">
+<!-- Top Welcome Banner -->
+<section class="relative overflow-hidden rounded-xl bg-surface-container-lowest shadow-sm p-space-lg md:p-space-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-space-lg">
+<div class="absolute -right-12 -top-12 w-64 h-64 rounded-full bg-primary-fixed/40 blur-3xl pointer-events-none"></div>
+<div class="absolute right-32 -bottom-16 w-48 h-48 rounded-full bg-secondary-fixed/40 blur-2xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col gap-space-sm max-w-2xl">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-primary-fixed text-on-primary-fixed font-label-md text-label-md w-fit">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span>Sesión diaria recomendada</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface">
+          ¡Hola, Sofía! Lista para entrenar tu voz hoy
+        </h1>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Mantén tu racha de 7 días con una práctica enfocada en claridad y ritmo. Tu progreso esta semana supera al 85% de tu objetivo.
+        </p>
+</div>
+<div class="relative z-10 flex items-center gap-space-md shrink-0">
+<button class="inline-flex items-center gap-space-sm px-space-lg py-space-md rounded-xl bg-secondary-container text-on-secondary font-label-lg text-label-lg shadow-md hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer" id="quickPracticeBtn" type="button">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">mic</span>
+<span>Iniciar Práctica Rápida</span>
+</button>
+</div>
+</section>
+<!-- 4-Column KPI Metrics Row -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- KPI 1: Claridad Vocal -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between gap-space-md">
+<div class="flex items-center justify-between gap-space-sm">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">Claridad Vocal</span>
+<div class="w-9 h-9 rounded-lg bg-primary-fixed text-on-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">record_voice_over</span>
+</div>
+</div>
+<div class="flex items-baseline justify-between gap-space-sm">
+<span class="font-headline-xl text-headline-xl text-on-surface">88%</span>
+<span class="inline-flex items-center gap-1 px-space-sm py-space-xs rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+            +4% esta semana
+          </span>
+</div>
+</div>
+<!-- KPI 2: Ritmo Promedio -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between gap-space-md">
+<div class="flex items-center justify-between gap-space-sm">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">Ritmo Promedio</span>
+<div class="w-9 h-9 rounded-lg bg-primary-fixed text-on-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">speed</span>
+</div>
+</div>
+<div class="flex items-baseline justify-between gap-space-sm">
+<span class="font-headline-xl text-headline-xl text-on-surface">138 <span class="font-body-sm text-body-sm text-on-surface-variant">ppm</span></span>
+<span class="inline-flex items-center px-space-sm py-space-xs rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md">
+            Óptimo
+          </span>
+</div>
+</div>
+<!-- KPI 3: Muletillas -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between gap-space-md">
+<div class="flex items-center justify-between gap-space-sm">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">Muletillas</span>
+<div class="w-9 h-9 rounded-lg bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">graphic_eq</span>
+</div>
+</div>
+<div class="flex items-baseline justify-between gap-space-sm">
+<span class="font-headline-xl text-headline-xl text-on-surface">2.1 <span class="font-body-sm text-body-sm text-on-surface-variant">/ min</span></span>
+<span class="inline-flex items-center gap-1 px-space-sm py-space-xs rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md">
+            -15% mejora
+          </span>
+</div>
+</div>
+<!-- KPI 4: Tiempo de Práctica -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between gap-space-md">
+<div class="flex items-center justify-between gap-space-sm">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">Tiempo de Práctica</span>
+<div class="w-9 h-9 rounded-lg bg-primary-fixed text-on-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">schedule</span>
+</div>
+</div>
+<div class="flex items-baseline justify-between gap-space-sm">
+<span class="font-headline-xl text-headline-xl text-on-surface">4h 20m</span>
+<span class="font-label-md text-label-md text-on-surface-variant">
+            esta semana
+          </span>
+</div>
+</div>
+</section>
+<!-- Main Content 2-Column Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Left (Wider) Column -->
+<div class="lg:col-span-8 flex flex-col gap-space-xl min-w-0">
+<!-- Progreso Semanal Chart Card -->
+<section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-lg">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Progreso Semanal</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Puntaje diario de claridad vocal (Lun - Dom)</p>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="w-3 h-3 rounded-full bg-primary-container inline-block"></span>
+<span class="font-label-md text-label-md text-on-surface-variant">Claridad (%)</span>
+</div>
+<span class="px-space-sm py-space-xs rounded-lg bg-primary-fixed text-on-primary-fixed font-label-md text-label-md" id="chartSelectedReadout">
+                Dom: 88%
+              </span>
+</div>
+</div>
+<!-- Clean Interactive Bar + Line SVG Chart -->
+<div class="w-full pt-space-sm">
+<svg aria-label="Gráfico de progreso semanal de claridad vocal" class="w-full h-56 overflow-visible" role="img" viewbox="0 0 640 220">
+<!-- Horizontal Gridlines -->
+<g class="text-surface-container-high" stroke="currentColor" stroke-dasharray="4 4" stroke-width="1">
+<line x1="36" x2="620" y1="20" y2="20"></line>
+<line x1="36" x2="620" y1="70" y2="70"></line>
+<line x1="36" x2="620" y1="120" y2="120"></line>
+<line x1="36" x2="620" y1="170" y2="170"></line>
+</g>
+<!-- Y-Axis Labels -->
+<g class="text-on-surface-variant fill-current font-label-sm text-label-sm" text-anchor="end">
+<text x="28" y="24">100</text>
+<text x="28" y="74">80</text>
+<text x="28" y="124">60</text>
+<text x="28" y="174">40</text>
+</g>
+<!-- Bars -->
+<g id="weeklyBars">
+<!-- Lun: 76% -> y=80, h=90 -->
+<rect class="text-primary-fixed hover:text-primary-container fill-current transition-colors cursor-pointer" data-day="Lun" data-score="76%" height="90" rx="8" width="36" x="66" y="80"></rect>
+<!-- Mar: 79% -> y=72, h=98 -->
+<rect class="text-primary-fixed hover:text-primary-container fill-current transition-colors cursor-pointer" data-day="Mar" data-score="79%" height="98" rx="8" width="36" x="148" y="72"></rect>
+<!-- Mié: 82% -> y=65, h=105 -->
+<rect class="text-primary-fixed hover:text-primary-container fill-current transition-colors cursor-pointer" data-day="Mié" data-score="82%" height="105" rx="8" width="36" x="230" y="65"></rect>
+<!-- Jue: 80% -> y=70, h=100 -->
+<rect class="text-primary-fixed hover:text-primary-container fill-current transition-colors cursor-pointer" data-day="Jue" data-score="80%" height="100" rx="8" width="36" x="312" y="70"></rect>
+<!-- Vie: 85% -> y=57, h=113 -->
+<rect class="text-primary-fixed hover:text-primary-container fill-current transition-colors cursor-pointer" data-day="Vie" data-score="85%" height="113" rx="8" width="36" x="394" y="57"></rect>
+<!-- Sáb: 86% -> y=55, h=115 -->
+<rect class="text-primary-fixed hover:text-primary-container fill-current transition-colors cursor-pointer" data-day="Sáb" data-score="86%" height="115" rx="8" width="36" x="476" y="55"></rect>
+<!-- Dom: 88% -> y=50, h=120 -->
+<rect class="text-primary-container fill-current transition-colors cursor-pointer" data-day="Dom" data-score="88%" height="120" rx="8" width="36" x="558" y="50"></rect>
+</g>
+<!-- Trend Line -->
+<polyline class="text-primary pointer-events-none" fill="none" points="84,80 166,72 248,65 330,70 412,57 494,55 576,50" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></polyline>
+<!-- Trend Dots -->
+<g class="text-primary fill-current pointer-events-none">
+<circle cx="84" cy="80" r="4"></circle>
+<circle cx="166" cy="72" r="4"></circle>
+<circle cx="248" cy="65" r="4"></circle>
+<circle cx="330" cy="70" r="4"></circle>
+<circle cx="412" cy="57" r="4"></circle>
+<circle cx="494" cy="55" r="4"></circle>
+<circle class="text-secondary-container fill-current" cx="576" cy="50" r="5"></circle>
+</g>
+<!-- X-Axis Labels -->
+<g class="text-on-surface-variant fill-current font-label-md text-label-md" text-anchor="middle">
+<text x="84" y="198">Lun</text>
+<text x="166" y="198">Mar</text>
+<text x="248" y="198">Mié</text>
+<text x="330" y="198">Jue</text>
+<text x="412" y="198">Vie</text>
+<text x="494" y="198">Sáb</text>
+<text class="text-on-surface font-semibold" x="576" y="198">Dom</text>
+</g>
+</svg>
+</div>
+</section>
+<!-- Ejercicios Recomendados para Hoy -->
+<section class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-md text-headline-md text-on-surface">Ejercicios Recomendados para Hoy</h2>
+<a class="font-label-lg text-label-lg text-primary hover:underline flex items-center gap-1" href="#">
+<span>Ver todos</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Exercise 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col justify-between gap-space-lg">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-xl bg-primary-fixed text-on-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">pause_circle</span>
+</div>
+<span class="px-space-sm py-space-xs rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md">
+                    5 min
+                  </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-space-xs">
+                  Control de Pausas Estratégicas
+                </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                  Aprende a usar silencios intencionales para dar peso a tus ideas clave.
+                </p>
+</div>
+<button class="exercise-btn w-full py-space-sm px-space-md rounded-lg bg-primary-container text-on-primary font-label-lg text-label-lg hover:bg-primary transition-colors flex items-center justify-center gap-space-xs cursor-pointer" data-exercise="Control de Pausas Estratégicas" type="button">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+<span>Practicar</span>
+</button>
+</div>
+<!-- Exercise 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col justify-between gap-space-lg">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-xl bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">filter_alt</span>
+</div>
+<span class="px-space-sm py-space-xs rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md">
+                    8 min
+                  </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-space-xs">
+                  Eliminación de Muletillas
+                </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                  Reduce el uso de "este", "eh" y "bueno" mediante transiciones fluidas.
+                </p>
+</div>
+<button class="exercise-btn w-full py-space-sm px-space-md rounded-lg bg-primary-container text-on-primary font-label-lg text-label-lg hover:bg-primary transition-colors flex items-center justify-center gap-space-xs cursor-pointer" data-exercise="Eliminación de Muletillas" type="button">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+<span>Practicar</span>
+</button>
+</div>
+<!-- Exercise 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col justify-between gap-space-lg">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-xl bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">campaign</span>
+</div>
+<span class="px-space-sm py-space-xs rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md">
+                    10 min
+                  </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-space-xs">
+                  Proyección y Entonación
+                </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                  Modula el volumen y la energía vocal para mantener la atención del público.
+                </p>
+</div>
+<button class="exercise-btn w-full py-space-sm px-space-md rounded-lg bg-primary-container text-on-primary font-label-lg text-label-lg hover:bg-primary transition-colors flex items-center justify-center gap-space-xs cursor-pointer" data-exercise="Proyección y Entonación" type="button">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+<span>Practicar</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column -->
+<div class="lg:col-span-4 flex flex-col gap-space-xl min-w-0">
+<!-- Último Análisis de Sesión -->
+<section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-lg">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Último Análisis de Sesión</h2>
+<span class="px-space-sm py-space-xs rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md">
+              86/100
+            </span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Ayer • 14:30</span>
+<h3 class="font-body-lg text-body-lg font-semibold text-on-surface truncate">
+              Presentación de Proyecto Q3
+            </h3>
+</div>
+<!-- Audio Waveform Preview -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex items-center gap-space-md">
+<button aria-label="Reproducir vista previa" class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center shrink-0 hover:bg-primary transition-colors cursor-pointer" id="playWaveformBtn" type="button">
+<span class="material-symbols-outlined text-[20px]" id="playWaveformIcon" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<svg aria-hidden="true" class="w-full h-10 text-primary-container" viewbox="0 0 200 40">
+<rect fill="currentColor" height="12" opacity="0.5" rx="2" width="4" x="2" y="14"></rect>
+<rect fill="currentColor" height="24" opacity="0.8" rx="2" width="4" x="10" y="8"></rect>
+<rect fill="currentColor" height="32" rx="2" width="4" x="18" y="4"></rect>
+<rect fill="currentColor" height="16" opacity="0.7" rx="2" width="4" x="26" y="12"></rect>
+<rect fill="currentColor" height="28" rx="2" width="4" x="34" y="6"></rect>
+<rect fill="currentColor" height="10" opacity="0.4" rx="2" width="4" x="42" y="15"></rect>
+<rect fill="currentColor" height="20" opacity="0.8" rx="2" width="4" x="50" y="10"></rect>
+<rect fill="currentColor" height="36" rx="2" width="4" x="58" y="2"></rect>
+<rect fill="currentColor" height="18" opacity="0.6" rx="2" width="4" x="66" y="11"></rect>
+<rect fill="currentColor" height="26" rx="2" width="4" x="74" y="7"></rect>
+<rect fill="currentColor" height="12" opacity="0.5" rx="2" width="4" x="82" y="14"></rect>
+<rect fill="currentColor" height="22" opacity="0.9" rx="2" width="4" x="90" y="9"></rect>
+<rect fill="currentColor" height="30" rx="2" width="4" x="98" y="5"></rect>
+<rect fill="currentColor" height="14" opacity="0.6" rx="2" width="4" x="106" y="13"></rect>
+<rect fill="currentColor" height="24" opacity="0.8" rx="2" width="4" x="114" y="8"></rect>
+<rect fill="currentColor" height="8" opacity="0.4" rx="2" width="4" x="122" y="16"></rect>
+<rect fill="currentColor" height="28" rx="2" width="4" x="130" y="6"></rect>
+<rect fill="currentColor" height="20" opacity="0.7" rx="2" width="4" x="138" y="10"></rect>
+<rect fill="currentColor" height="32" rx="2" width="4" x="146" y="4"></rect>
+<rect fill="currentColor" height="16" opacity="0.5" rx="2" width="4" x="154" y="12"></rect>
+<rect fill="currentColor" height="22" opacity="0.8" rx="2" width="4" x="162" y="9"></rect>
+<rect fill="currentColor" height="12" opacity="0.5" rx="2" width="4" x="170" y="14"></rect>
+<rect fill="currentColor" height="26" opacity="0.9" rx="2" width="4" x="178" y="7"></rect>
+<rect fill="currentColor" height="14" opacity="0.4" rx="2" width="4" x="186" y="13"></rect>
+</svg>
+</div>
+<a class="inline-flex items-center justify-between w-full pt-space-xs font-label-lg text-label-lg text-primary hover:underline" href="#">
+<span>Ver reporte completo</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</section>
+<!-- Tu Ruta Actual -->
+<section class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm flex flex-col">
+<div class="relative h-32 w-full">
+<img class="w-full h-full object-cover" data-alt="Warm modern podcast and vocal coaching studio with a sleek condenser microphone on a desk, soft indigo and coral ambient lighting, clean minimalist aesthetic, shallow depth of field" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDypf_5z2nOXeAsyFTu5-JeqGVJrluGsAhPHpzABUUNNUxji9y0LYHO30tUkrYcFl0VjXbRGILpRXE5VPop0PCs04H75brS9-o2o0jjvuhy88R1SnmqhiezXA09LaHmsJfTFXCsCfbq__MFkaibCrtmqkf3BDgeGAR7pxOdneNvt5jEirW-Q4rve8cMmvMRn1uPqTTSw5-_8rDVjXDzhXvHe7iI6lVZ5Pir5MIsIDo"/>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/80 via-inverse-surface/20 to-transparent"></div>
+<span class="absolute top-space-md left-space-md px-space-sm py-space-xs rounded-full bg-surface-container-lowest/90 text-on-surface font-label-md text-label-md">
+              Módulo Activo
+            </span>
+</div>
+<div class="p-space-lg flex flex-col gap-space-md">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Tu Ruta Actual</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-space-xs">Oratoria Persuasiva</h3>
+</div>
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between font-label-md text-label-md">
+<span class="text-on-surface-variant">Progreso del módulo</span>
+<span class="text-primary">65% completado</span>
+</div>
+<div class="w-full h-2.5 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full rounded-full bg-primary-container transition-all duration-500" style="width: 65%;"></div>
+</div>
+</div>
+<a class="inline-flex items-center justify-center gap-space-xs w-full py-space-sm px-space-md rounded-lg bg-surface-container-low text-on-surface font-label-lg text-label-lg hover:bg-surface-container-high transition-colors" href="#">
+<span>Continuar lección</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</section>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function () {
+    const bars = document.querySelectorAll('#weeklyBars rect');
+    const readout = document.getElementById('chartSelectedReadout');
+
+    bars.forEach((bar) => {
+      bar.addEventListener('click', () => {
+        bars.forEach((b) => {
+          b.classList.remove('text-primary-container');
+          b.classList.add('text-primary-fixed');
+        });
+        bar.classList.remove('text-primary-fixed');
+        bar.classList.add('text-primary-container');
+        if (readout) {
+          readout.textContent = bar.dataset.day + ': ' + bar.dataset.score;
+        }
+      });
+    });
+
+    const playBtn = document.getElementById('playWaveformBtn');
+    const playIcon = document.getElementById('playWaveformIcon');
+    let isPlaying = false;
+
+    if (playBtn && playIcon) {
+      playBtn.addEventListener('click', () => {
+        isPlaying = !isPlaying;
+        playIcon.textContent = isPlaying ? 'pause' : 'play_arrow';
+      });
+    }
+
+    const quickBtn = document.getElementById('quickPracticeBtn');
+    if (quickBtn) {
+      quickBtn.addEventListener('click', () => {
+        quickBtn.classList.add('ring-0');
+        const originalText = quickBtn.querySelector('span:last-child').textContent;
+        quickBtn.querySelector('span:last-child').textContent = 'Preparando estudio...';
+        setTimeout(() => {
+          quickBtn.querySelector('span:last-child').textContent = originalText;
+        }, 1200);
+      });
+    }
+  })();
+</script></main></div></body></html>
