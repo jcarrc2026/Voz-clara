@@ -52,9 +52,11 @@ async function startServer() {
       return;
     }
 
+    const modelName = process.env.GEMINI_MODEL || 'gemini-4-hydrogen';
+
     try {
       const response = await ai.models.generateContent({
-        model: 'gemini-4-hydrogen',
+        model: modelName,
         contents: [
           `Área de comunicación: ${domainCategory ?? 'Elocuencia, oratoria y comunicación empresarial'}`,
           `Situación / Ejercicio: ${prompt}`,
@@ -67,7 +69,9 @@ async function startServer() {
         config: {
           systemInstruction:
             'Eres un coach de oratoria, elocuencia y comunicación ejecutiva. Tus consejos son concretos, cálidos, prácticos y aplicables en conversaciones reales, presentaciones en público y reuniones de empresa.',
-          thinkingConfig: {thinkingLevel: ThinkingLevel.LOW},
+          ...(modelName.startsWith('gemini-4')
+            ? {thinkingConfig: {thinkingLevel: ThinkingLevel.LOW}}
+            : {}),
         },
       });
 
@@ -100,10 +104,11 @@ async function startServer() {
     }
 
     const safeCount = Math.min(5, Math.max(1, Number(count) || 3));
+    const modelName = process.env.GEMINI_MODEL || 'gemini-4-hydrogen';
 
     try {
       const response = await ai.models.generateContent({
-        model: 'gemini-4-hydrogen',
+        model: modelName,
         contents: [
           `Unidad/Enfoque: ${category ?? 'Elocuencia y comunicación empresarial'}`,
           `Cantidad exacta de ejercicios a generar: ${safeCount}`,
@@ -114,7 +119,9 @@ async function startServer() {
         config: {
           systemInstruction:
             'Eres un diseñador instruccional de oratoria, elocuencia y comunicación ejecutiva. Creas micro-ejercicios prácticos en español con 4 opciones plausibles (1 elocuente/acertada y 3 distractores típicos como ser vago, agresivo o excesivamente apologético) y una explicación breve de impacto comunicativo.',
-          thinkingConfig: {thinkingLevel: ThinkingLevel.LOW},
+          ...(modelName.startsWith('gemini-4')
+            ? {thinkingConfig: {thinkingLevel: ThinkingLevel.LOW}}
+            : {}),
           responseMimeType: 'application/json',
           responseSchema: {
             type: Type.ARRAY,
