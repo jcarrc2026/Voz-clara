@@ -11,13 +11,10 @@ interface VercelResponse extends ServerResponse {
   json: (data: unknown) => void;
 }
 
-function getAiClient(): GoogleGenAI | null {
-  const apiKey = process.env.GEMINI_API_KEY;
-  if (!apiKey || apiKey === 'MY_GEMINI_API_KEY') {
-    return null;
-  }
+function createAiClient(apiKey: string, useVertexExpress = false): GoogleGenAI {
   return new GoogleGenAI({
     apiKey,
+    ...(useVertexExpress ? {vertexai: true} : {}),
     httpOptions: {
       headers: {
         'User-Agent': 'aistudio-build',
@@ -45,8 +42,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return;
   }
 
-  const ai = getAiClient();
-  if (!ai) {
+  const apiKey = (process.env.GEMINI_API_KEY ?? '').trim();
+  if (!apiKey || apiKey === 'MY_GEMINI_API_KEY') {
     res.status(503).json({
       error:
         'El generador opcional de ejercicios requiere configurar GEMINI_API_KEY en las variables de entorno del servidor.',
@@ -67,44 +64,59 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   const safeCount = Math.min(5, Math.max(1, Number.isFinite(countRaw) && countRaw > 0 ? countRaw : 3));
-  const modelName = process.env.GEMINI_MODEL || 'gemini-4-hydrogen';
+  const defaultModel = process.env.VERCEL ? 'gemini-2.5-flash' : 'gemini-4-hydrogen';
+  const modelName = process.env.GEMINI_MODEL || defaultModel;
 
-  try {
-    const response = await ai.models.generateContent({
-      model: modelName,
-      contents: [
-        `Unidad/Enfoque: ${category ?? 'Elocuencia y comunicación empresarial'}`,
-        `Cantidad exacta de ejercicios a generar: ${safeCount}`,
-        'Genera preguntas situacionales cortas (tipo multiple_choice) para entrenar elocuencia, claridad, diplomacia o presencia escénica basadas en estas notas o situaciones:',
-        '---',
-        notes.trim().slice(0, 4000),
-      ].join('\n'),
-      config: {
-        systemInstruction:
-          'Eres un diseñador instruccional de oratoria, elocuencia y comunicación ejecutiva. Creas micro-ejercicios prácticos en español con 4 opciones plausibles (1 elocuente/acertada y 3 distractores típicos como ser vago, agresivo o excesivamente apologético) y una explicación breve de impacto comunicativo.',
-        ...(modelName.startsWith('gemini-4')
-          ? {thinkingConfig: {thinkingLevel: ThinkingLevel.LOW}}
-          : {}),
-        responseMimeType: 'application/json',
-        responseSchema: {
-          type: Type.ARRAY,
-          items: {
-            type: Type.OBJECT,
-            properties: {
-              prompt: {type: Type.STRING},
-              difficulty: {type: Type.INTEGER},
-              options: {
-                type: Type.ARRAY,
-                items: {type: Type.STRING},
-              },
-              correctIndex: {type: Type.INTEGER},
-              explanation: {type: Type.STRING},
+  const requestParams = {
+    model: modelName,
+    contents: [
+      `Unidad/Enfoque: ${category ?? 'Elocuencia y comunicación empresarial'}`,
+      `Cantidad exacta de ejercicios a generar: ${safeCount}`,
+      'Genera preguntas situacionales cortas (tipo multiple_choice) para entrenar elocuencia, claridad, diplomacia o presencia escénica basadas en estas notas o situaciones:',
+      '---',
+      notes.trim().slice(0, 4000),
+    ].join('\n'),
+    config: {
+      systemInstruction:
+        'Eres un diseñador instruccional de oratoria, elocuencia y comunicación ejecutiva. Creas micro-ejercicios prácticos en español con 4 opciones plausibles (1 elocuente/acertada y 3 distractores típicos como ser vago, agresivo o excesivamente apologético) y una explicación breve de impacto comunicativo.',
+      ...(modelName.startsWith('gemini-4')
+        ? {thinkingConfig: {thinkingLevel: ThinkingLevel.LOW}}
+        : {}),
+      responseMimeType: 'application/json',
+      responseSchema: {
+        type: Type.ARRAY,
+        items: {
+          type: Type.OBJECT,
+          properties: {
+            prompt: {type: Type.STRING},
+            difficulty: {type: Type.INTEGER},
+            options: {
+              type: Type.ARRAY,
+              items: {type: Type.STRING},
             },
-            required: ['prompt', 'difficulty', 'options', 'correctIndex', 'explanation'],
+            correctIndex: {type: Type.INTEGER},
+            explanation: {type: Type.STRING},
           },
+          required: ['prompt', 'difficulty', 'options', 'correctIndex', 'explanation'],
         },
       },
-    });
+    },
+  };
+
+  try {
+    let response;
+    try {
+      const ai = createAiClient(apiKey, false);
+      response = await ai.models.generateContent(requestParams);
+    } catch (firstErr: unknown) {
+      const msg = firstErr instanceof Error ? firstErr.message : String(firstErr);
+      if (apiKey.startsWith('AQ.') || msg.includes('ACCESS_TOKEN_TYPE_UNSUPPORTED')) {
+        const vertexAi = createAiClient(apiKey, true);
+        response = await vertexAi.models.generateContent(requestParams);
+      } else {
+        throw firstErr;
+      }
+    }
 
     const raw = (response.text ?? '[]').trim();
     const parsed = JSON.parse(raw);

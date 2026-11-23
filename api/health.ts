@@ -15,12 +15,14 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     return;
   }
 
-  const apiKey = process.env.GEMINI_API_KEY;
+  const apiKey = (process.env.GEMINI_API_KEY ?? '').trim();
   const aiConfigured = Boolean(apiKey && apiKey !== 'MY_GEMINI_API_KEY');
+  const defaultModel = process.env.VERCEL ? 'gemini-2.5-flash' : 'gemini-4-hydrogen';
 
   res.status(200).json({
     ok: true,
     aiConfigured,
-    model: process.env.GEMINI_MODEL || 'gemini-4-hydrogen',
+    model: process.env.GEMINI_MODEL || defaultModel,
+    keyFormat: aiConfigured ? (apiKey.startsWith('AQ.') ? 'AQ' : 'standard') : null,
   });
 }
