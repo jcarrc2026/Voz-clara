@@ -21,11 +21,11 @@ import type {
 } from './types/study';
 import {AppShell, type AppTab} from './components/AppShell';
 import {HomeDashboardView} from './components/HomeDashboardView';
-import {LearningPathView} from './components/LearningPathView';
-import {ReviewQueueView} from './components/ReviewQueueView';
-import {PhrasebookView} from './components/PhrasebookView';
+import {CoursesView} from './components/CoursesView';
+import {GymnasiumView} from './components/GymnasiumView';
+import {JournalHabitsView} from './components/JournalHabitsView';
+import {LocalAiMentorView} from './components/LocalAiMentorView';
 import {AnalyticsView} from './components/AnalyticsView';
-import {ModelStudioView} from './components/ModelStudioView';
 import {StudySessionView} from './components/StudySessionView';
 import {QuickTipsOverlay} from './components/QuickTipsOverlay';
 
@@ -43,6 +43,7 @@ export default function App() {
   const [quickTipOpen, setQuickTipOpen] = useState<boolean>(false);
   const [quickTip, setQuickTip] = useState<QuickTip | null>(null);
   const [quickTipContext, setQuickTipContext] = useState<string>('Consejo entre sesiones');
+  const [mentorInitialTopic, setMentorInitialTopic] = useState<string>('');
 
   useEffect(() => {
     saveStudyState(studyState);
@@ -60,16 +61,15 @@ export default function App() {
     [allItems, studyState.progressByItem, nowMs]
   );
 
-  const nextLesson = useMemo(
-    () =>
-      getNextUnfinishedLesson(
-        STUDY_LESSONS,
-        STUDY_MODULES,
-        allItems,
-        studyState.progressByItem
-      ),
-    [allItems, studyState.progressByItem]
-  );
+  const handleAddXp = (amount: number) => {
+    setStudyState((curr) => {
+      const updatedStats = updateDailyStreak(curr.stats, amount, nowMs);
+      return {
+        ...curr,
+        stats: updatedStats,
+      };
+    });
+  };
 
   const handleOpenQuickTip = (contextLabel: string) => {
     setQuickTip((prev) => pickRandomQuickTip(prev?.id));
@@ -168,126 +168,63 @@ export default function App() {
     }));
   };
 
-  const handleAddCustomItems = (newItems: StudyItem[]) => {
-    setStudyState((curr) => ({
-      ...curr,
-      customItems: [...curr.customItems, ...newItems],
-    }));
-  };
-
-  const handleSimulateNextDay = () => {
-    setStudyState((curr) => ({
-      ...curr,
-      dayOffset: curr.dayOffset + 1,
-    }));
-  };
-
-  const handleResetClockSimulation = () => {
-    setStudyState((curr) => ({
-      ...curr,
-      dayOffset: 0,
-    }));
-  };
-
-  const handleResetProgress = () => {
-    setStudyState(resetStudyState());
-  };
-
   const renderMainContent = () => {
-    if (activeTab === 'dashboard') {
-      return (
-        <main>
+    switch (activeTab) {
+      case 'dashboard':
+        return (
           <HomeDashboardView
+            modules={STUDY_MODULES}
+            lessons={STUDY_LESSONS}
+            stats={studyState.stats}
+            onStartSession={handleStartSession}
+            onNavigateTab={setActiveTab}
+          />
+        );
+      case 'courses':
+        return (
+          <CoursesView
+            onStartSession={handleStartSession}
+            onOpenMentorWithTopic={(topic) => {
+              setMentorInitialTopic(topic);
+              setActiveTab('mentor');
+            }}
+          />
+        );
+      case 'gym':
+        return <GymnasiumView onAddXp={handleAddXp} />;
+      case 'journal':
+        return <JournalHabitsView onAddXp={handleAddXp} />;
+      case 'mentor':
+        return <LocalAiMentorView initialTopic={mentorInitialTopic} onAddXp={handleAddXp} />;
+      case 'analytics':
+        return (
+          <AnalyticsView
             modules={STUDY_MODULES}
             lessons={STUDY_LESSONS}
             items={allItems}
             progressByItem={studyState.progressByItem}
             stats={studyState.stats}
             sessions={studyState.sessions}
-            nextLesson={nextLesson}
             nowMs={nowMs}
             dayOffset={studyState.dayOffset}
             onStartSession={handleStartSession}
-            onNavigateTab={(tab) => setActiveTab(tab)}
           />
-        </main>
-      );
+        );
+      default:
+        return (
+          <HomeDashboardView
+            modules={STUDY_MODULES}
+            lessons={STUDY_LESSONS}
+            stats={studyState.stats}
+            onStartSession={handleStartSession}
+            onNavigateTab={setActiveTab}
+          />
+        );
     }
-
-    if (activeTab === 'path') {
-      return (
-        <LearningPathView
-          modules={STUDY_MODULES}
-          lessons={STUDY_LESSONS}
-          items={allItems}
-          progressByItem={studyState.progressByItem}
-          stats={studyState.stats}
-          sessions={studyState.sessions}
-          nextLesson={nextLesson}
-          nowMs={nowMs}
-          dayOffset={studyState.dayOffset}
-          onStartSession={handleStartSession}
-          onOpenReview={() => setActiveTab('review')}
-          onOpenQuickTip={() => handleOpenQuickTip('Consejo rápido')}
-        />
-      );
-    }
-
-    if (activeTab === 'review') {
-      return (
-        <ReviewQueueView
-          items={allItems}
-          lessons={STUDY_LESSONS}
-          progressByItem={studyState.progressByItem}
-          nowMs={nowMs}
-          dayOffset={studyState.dayOffset}
-          onSimulateNextDay={handleSimulateNextDay}
-          onResetClockSimulation={handleResetClockSimulation}
-          onStartSession={handleStartSession}
-        />
-      );
-    }
-
-    if (activeTab === 'phrases') {
-      return (
-        <PhrasebookView
-          modules={STUDY_MODULES}
-          lessons={STUDY_LESSONS}
-          items={allItems}
-          progressByItem={studyState.progressByItem}
-        />
-      );
-    }
-
-    if (activeTab === 'analytics') {
-      return (
-        <AnalyticsView
-          modules={STUDY_MODULES}
-          lessons={STUDY_LESSONS}
-          items={allItems}
-          progressByItem={studyState.progressByItem}
-          stats={studyState.stats}
-          sessions={studyState.sessions}
-          nowMs={nowMs}
-          dayOffset={studyState.dayOffset}
-          onStartSession={handleStartSession}
-        />
-      );
-    }
-
-    return (
-      <ModelStudioView
-        state={studyState}
-        lessons={STUDY_LESSONS}
-        onAddCustomItems={handleAddCustomItems}
-        onImportState={(nextState) => setStudyState(nextState)}
-        onResetProgress={handleResetProgress}
-      />
-    );
   };
 
   return (
-    <div className="min-h-screen bg-[#f7f9fb] text-[#191c1e]">
+    <div className="min-h-screen bg-[#F8FAFC] text-[#0F172A]">
       {activeSession ? (
         <StudySessionView
           key={activeSession.id}
@@ -309,14 +246,8 @@ export default function App() {
           activeTab={activeTab}
           onSelectTab={setActiveTab}
           onStartPrimarySession={() => handleStartSession('mixed', null)}
-          onStartLesson={(lessonId) => handleStartSession('lesson', lessonId)}
-          onOpenQuickTip={() => handleOpenQuickTip('Consejo rápido')}
-          dueCount={dueCount}
           stats={studyState.stats}
           nowMs={nowMs}
-          modules={STUDY_MODULES}
-          lessons={STUDY_LESSONS}
-          items={allItems}
         >
           {renderMainContent()}
         </AppShell>

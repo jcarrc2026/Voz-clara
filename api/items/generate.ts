@@ -115,8 +115,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     } catch (firstErr: unknown) {
       const msg = firstErr instanceof Error ? firstErr.message : String(firstErr);
       if (apiKey.startsWith('AQ.') || msg.includes('ACCESS_TOKEN_TYPE_UNSUPPORTED')) {
-        const vertexAi = createAiClient(apiKey, true);
-        response = await vertexAi.models.generateContent(requestParams);
+        try {
+          const vertexAi = createAiClient(apiKey, true);
+          response = await vertexAi.models.generateContent(requestParams);
+        } catch {
+          throw firstErr;
+        }
       } else {
         throw firstErr;
       }

@@ -1,6 +1,6 @@
 {
-  "name": "VozClara — Elocuencia y Oratoria",
-  "description": "App de micro-sesiones animadas y repetición espaciada para hablar con elocuencia, dominar la oratoria en público y comunicarte con seguridad en empresas.",
+  "name": "El camino de la voz",
+  "description": "Domina tu palabra, transforma tus ventas, proyecta tu negocio y eleva tu vida con micro-sesiones, gimnasio de oratoria y mentor IA.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": []
 }
